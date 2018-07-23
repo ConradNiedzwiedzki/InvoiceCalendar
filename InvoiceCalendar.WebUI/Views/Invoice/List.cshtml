@@ -1,0 +1,14 @@
+﻿@using InvoiceCalendar.Domain.Entities
+@model IEnumerable<Invoice>
+@{
+    ViewBag.Title = "Faktury";
+}
+@foreach (var p in Model)
+{
+    <div>
+        <h3>@p.Company</h3>
+        @p.Date
+        <h4>@p.Price.ToString("c")</h4>
+    </div>
+}
+
