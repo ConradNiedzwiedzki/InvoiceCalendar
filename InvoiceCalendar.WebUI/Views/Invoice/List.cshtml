@@ -3,12 +3,12 @@
 @{
     ViewBag.Title = "Faktury";
 }
-@foreach (var p in Model)
+@foreach (var i in Model)
 {
     <div>
-        <h3>@p.Company</h3>
-        @p.Date
-        <h4>@p.Price.ToString("c")</h4>
+        <h3>@i.Company</h3>
+        @i.Date.Day / @i.Date.Month / @i.Date.Year
+        <h4>@i.Price.ToString("c")</h4>
     </div>
 }
 
