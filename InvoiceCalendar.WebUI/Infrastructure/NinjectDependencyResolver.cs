@@ -1,5 +1,6 @@
 ﻿using InvoiceCalendar.Domain.Abstract;
 using InvoiceCalendar.Domain.Entities;
+using InvoiceCalendar.Domain.Concrete;
 using Moq;
 using Ninject;
 using System;
@@ -32,13 +33,7 @@ namespace InvoiceCalendar.WebUI.Infrastructure
         
         private void AddBindings()
         {
-            Mock<IInvoiceRepository> mock = new Mock<IInvoiceRepository>();
-            mock.Setup(m => m.Invoices).Returns(new List<Invoice> {
-                new Invoice { Company = "KMD", Price = 1100, Date = DateTime.Today },
-                new Invoice { Company = "DPD", Price = 800, Date = DateTime.Today },
-                new Invoice { Company = "Paxer", Price = 350, Date = DateTime.Today }
-            });
-            _kernel.Bind<IInvoiceRepository>().ToConstant(mock.Object);
+            _kernel.Bind<IInvoiceRepository>().To<EFInvoiceRepository>();
         }
     }
 }
