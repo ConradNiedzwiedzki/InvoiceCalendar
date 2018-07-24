@@ -55,5 +55,29 @@ namespace InvoiceCalendar.UnitTests
             Assert.AreEqual(@"<a class=""btn btn-default"" href=""Strona1"">1</a>" + @"<a class="" btn btn-default btn-primary selected"" href=""Strona2"">2</a>"
                     + @"<a class=""btn btn-default"" href=""Strona3"">3</a>", result.ToString());
         }
+
+        [TestMethod]
+        public void Can_Send_Pagination_View_Model()
+        {
+            Mock<IInvoiceRepository> mock = new Mock<IInvoiceRepository>();
+            mock.Setup(m => m.Invoices).Returns(new Invoice[] {
+                new Invoice {InvoiceID = 1, Company = "I1"},
+                new Invoice {InvoiceID = 2, Company = "I2"},
+                new Invoice {InvoiceID = 3, Company = "I3"},
+                new Invoice {InvoiceID = 4, Company = "I4"},
+                new Invoice {InvoiceID = 5, Company = "I5"}
+            });
+
+            InvoiceController controller = new InvoiceController(mock.Object);
+            controller.PageSize = 3;
+
+            InvoicesListViewModel result = (InvoicesListViewModel)controller.List(2).Model;
+
+            PagingInfo pageInfo = result.PagingInfo;
+            Assert.AreEqual(pageInfo.CurrentPage, 2);
+            Assert.AreEqual(pageInfo.ItemsPerPage, 3);
+            Assert.AreEqual(pageInfo.TotalItems, 5);
+            Assert.AreEqual(pageInfo.TotalPages, 2);
+        }
     }
 }
