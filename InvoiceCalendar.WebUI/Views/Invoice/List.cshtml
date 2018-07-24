@@ -1,4 +1,6 @@
-﻿@model InvoiceCalendar.WebUI.Models.InvoicesListViewModel
+﻿@using InvoiceCalendar.WebUI.HtmlHelpers;
+@model InvoiceCalendar.WebUI.Models.InvoicesListViewModel
+
 
 @{
     ViewBag.Title = "Faktury";
@@ -12,4 +14,7 @@
         <h4>@i.Price.ToString("c")</h4>
     </div>
 }
+<div>
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>
 
