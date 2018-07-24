@@ -101,7 +101,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="PaginationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +109,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InvoiceCalendar.Domain\InvoiceCalendar.Domain.csproj">
+      <Project>{c3fb8e91-c7e0-46d1-8198-a3e77c44d940}</Project>
+      <Name>InvoiceCalendar.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InvoiceCalendar.WebUI\InvoiceCalendar.WebUI.csproj">
       <Project>{66c5f005-67ef-4abe-b8e5-e21e5b2bf032}</Project>
       <Name>InvoiceCalendar.WebUI</Name>
