@@ -29,9 +29,9 @@ namespace InvoiceCalendar.UnitTests
             InvoiceController controller = new InvoiceController(mock.Object);
             controller.PageSize = 3;
 
-            IEnumerable<Invoice> result = (IEnumerable<Invoice>)controller.List(2).Model;
+            InvoicesListViewModel result = (InvoicesListViewModel)controller.List(2).Model;
 
-            Invoice[] prodArray = result.ToArray();
+            Invoice[] prodArray = result.Invoices.ToArray();
             Assert.IsTrue(prodArray.Length == 2);
             Assert.AreEqual(prodArray[0].Company, "P4");
             Assert.AreEqual(prodArray[1].Company, "P5");
