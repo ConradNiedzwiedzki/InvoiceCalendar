@@ -1,8 +1,6 @@
 ﻿using InvoiceCalendar.Domain.Abstract;
-using System;
-using System.Collections.Generic;
+using InvoiceCalendar.WebUI.Models;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace InvoiceCalendar.WebUI.Controllers
@@ -18,10 +16,20 @@ namespace InvoiceCalendar.WebUI.Controllers
 
         public ViewResult List(int page = 1)
         {
-            return View(_repository.Invoices
-            .OrderBy(p => p.InvoiceID)
-            .Skip((page - 1) * PageSize)
-            .Take(PageSize));
+            InvoicesListViewModel model = new InvoicesListViewModel
+            {
+                Invoices = _repository.Invoices
+                    .OrderBy(p => p.InvoiceID)
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = _repository.Invoices.Count()
+                }
+            };
+            return View(model);
         }
     }
 }
