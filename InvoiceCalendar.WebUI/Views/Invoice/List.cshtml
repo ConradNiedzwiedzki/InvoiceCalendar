@@ -1,9 +1,10 @@
-﻿@using InvoiceCalendar.Domain.Entities
-@model IEnumerable<Invoice>
+﻿@model InvoiceCalendar.WebUI.Models.InvoicesListViewModel
+
 @{
     ViewBag.Title = "Faktury";
 }
-@foreach (var i in Model)
+
+@foreach (var i in Model.Invoices)
 {
     <div>
         <h3>@i.Company</h3>
