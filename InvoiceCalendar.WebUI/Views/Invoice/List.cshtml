@@ -1,20 +1,22 @@
 ﻿@using InvoiceCalendar.WebUI.HtmlHelpers;
 @model InvoiceCalendar.WebUI.Models.InvoicesListViewModel
 
-
 @{
     ViewBag.Title = "Faktury";
 }
 
 @foreach (var i in Model.Invoices)
 {
-    <div>
-        <h3>@i.Company</h3>
+    <div class="well">
+        <h3>
+            <strong>@i.Company</strong>
+            <h4>@i.Price.ToString("c")</h4>
+        </h3>
         @i.Date.Day / @i.Date.Month / @i.Date.Year
-        <h4>@i.Price.ToString("c")</h4>
     </div>
 }
-<div>
+
+<div class="btn-group pull-right">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
 </div>
 
