@@ -5,7 +5,7 @@
     ViewBag.Title = "Faktury";
 }
 
-@foreach (var p in Model.Invoices)
+@foreach (var i in Model.Invoices)
 {
     @Html.Partial("InvoiceSummary", i);
 }
