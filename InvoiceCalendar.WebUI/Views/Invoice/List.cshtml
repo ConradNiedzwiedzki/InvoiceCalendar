@@ -5,15 +5,9 @@
     ViewBag.Title = "Faktury";
 }
 
-@foreach (var i in Model.Invoices)
+@foreach (var p in Model.Invoices)
 {
-    <div class="well">
-        <h3>
-            <strong>@i.Company</strong>
-            <h4>@i.Price.ToString("c")</h4>
-        </h3>
-        @i.Date.Day / @i.Date.Month / @i.Date.Year
-    </div>
+    @Html.Partial("InvoiceSummary", i);
 }
 
 <div class="btn-group pull-right">
