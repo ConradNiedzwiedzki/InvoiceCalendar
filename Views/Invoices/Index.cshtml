@@ -7,7 +7,7 @@
 <h2>Kalendarz faktur</h2>
 
 <p>
-    <a asp-action="Create">Stworz nowa fakture</a>
+    <a asp-action="Create">Dodaj fakture</a>
 </p>
 <table class="table">
     <thead>
@@ -31,7 +31,7 @@
                 @Html.DisplayFor(modelItem => item.Company)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => item.Price) zl
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDate)
