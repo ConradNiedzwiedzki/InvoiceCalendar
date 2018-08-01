@@ -1,0 +1,47 @@
+@model IEnumerable<InvoiceCalendar.Models.Invoice>
+
+@{
+    ViewData["Title"] = "Kalendarz faktur";
+}
+
+<h2>Kalendarz faktur</h2>
+
+<p>
+    <a asp-action="Create">Stworz nowa fakture</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Szczegoly</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Usun</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
