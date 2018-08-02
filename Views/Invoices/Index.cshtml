@@ -9,6 +9,14 @@
 <p>
     <a asp-action="Create">Dodaj fakture</a>
 </p>
+
+<form asp-controller="Invoices" asp-action="Filtered" method="get">
+    <p>
+        Wpisz date [rrrr-mm-dd]: <input type="text" name="date">
+        <input type="submit" value="Filtruj po dacie" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -45,7 +53,3 @@
 }
     </tbody>
 </table>
-
-<p>
-    <a asp-action="Filtered" asp-route-date="2018-08-02">Filtruj po dzisiejszym dniu</a>
-</p>

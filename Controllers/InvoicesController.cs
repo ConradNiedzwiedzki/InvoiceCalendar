@@ -26,7 +26,12 @@ namespace InvoiceCalendar.Controllers
 
         public async Task<IActionResult> Filtered(DateTime date)
         {
-            return View(await _context.Invoice.Where(i => i.CreatedDate == date).ToListAsync());
+            var invoices = from i in _context.Invoice
+                         select i;
+
+            invoices = invoices.Where(i => i.CreatedDate == date);
+            return View(await invoices.ToListAsync());
+            // return View(await _context.Invoice.Where(i => i.CreatedDate == date).ToListAsync());
         }
 
         // GET: Invoices/Details/5
