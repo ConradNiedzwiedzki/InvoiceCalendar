@@ -26,22 +26,26 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Company)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price) zl
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edytuj</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Szczegoly</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Usun</a>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price) zl
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.ID">Edytuj</a> |
+            <a asp-action="Details" asp-route-id="@item.ID">Szczegoly</a> |
+            <a asp-action="Delete" asp-route-id="@item.ID">Usun</a>
+        </td>
+    </tr>
 }
     </tbody>
 </table>
+
+<p>
+    <a asp-action="Filtered" asp-route-date="2018-08-02">Filtruj po dzisiejszym dniu</a>
+</p>

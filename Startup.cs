@@ -62,6 +62,9 @@ namespace InvoiceCalendar
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Invoices}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "FilteredInvoice",
+                    template: "{controller=Invoices}/{action=Filtered}/{date}");
             });
         }
     }
