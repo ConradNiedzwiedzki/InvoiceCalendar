@@ -6,13 +6,9 @@
 
 <h2>Kalendarz faktur</h2>
 
-<p>
-    <a asp-action="Create">Dodaj fakture</a>
-</p>
-
 <form asp-controller="Invoices" asp-action="Filtered" method="get">
     <p>
-        Wpisz date [rrrr-mm-dd]: <input type="text" name="date">
+        <input type="date" name="date">
         <input type="submit" value="Filtruj po dacie" />
     </p>
 </form>
@@ -20,36 +16,41 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Company)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreatedDate)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Company)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price) zl
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            <a asp-action="Edit" asp-route-id="@item.ID">Edytuj</a> |
-            <a asp-action="Details" asp-route-id="@item.ID">Szczegoly</a> |
-            <a asp-action="Delete" asp-route-id="@item.ID">Usun</a>
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price) zl
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edytuj</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Szczegoly</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Usun</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<p>
+    <a asp-action="Create">Dodaj fakture</a>
+</p>

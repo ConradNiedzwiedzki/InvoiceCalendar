@@ -28,15 +28,15 @@
                 @Html.DisplayFor(modelItem => item.Company)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => item.Price) zl
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edytj</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Szczegoly</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Usun</a>
             </td>
         </tr>
 }
