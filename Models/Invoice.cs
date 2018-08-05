@@ -8,6 +8,8 @@ namespace InvoiceCalendar.Models
 {
     public class Invoice
     {
+        public string OwnerID { get; set; }
+
         public int ID { get; set; }
 
         [Required]
@@ -24,5 +26,15 @@ namespace InvoiceCalendar.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime CreatedDate { get; set; }
+
+        public InvoiceStatus Status { get; set; }
     }
+
+    public enum InvoiceStatus
+    {
+        Submitted,
+        Approved,
+        Rejected
+    }
+
 }
