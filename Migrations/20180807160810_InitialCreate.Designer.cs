@@ -11,7 +11,7 @@ using System;
 namespace InvoiceCalendar.Migrations
 {
     [DbContext(typeof(MyDatabaseContext))]
-    [Migration("20180801184311_InitialCreate")]
+    [Migration("20180807160810_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,11 +25,12 @@ namespace InvoiceCalendar.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Company");
+                    b.Property<string>("Company")
+                        .IsRequired();
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<uint>("Price");
+                    b.Property<double>("Price");
 
                     b.HasKey("ID");
 

@@ -14,7 +14,7 @@ namespace InvoiceCalendar.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Company = table.Column<string>(nullable: true),
+                    Company = table.Column<string>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     Price = table.Column<double>(nullable: false)
                 },

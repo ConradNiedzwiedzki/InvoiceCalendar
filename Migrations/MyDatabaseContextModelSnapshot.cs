@@ -24,7 +24,8 @@ namespace InvoiceCalendar.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Company");
+                    b.Property<string>("Company")
+                        .IsRequired();
 
                     b.Property<DateTime>("CreatedDate");
 
