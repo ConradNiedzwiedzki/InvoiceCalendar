@@ -17,6 +17,8 @@ namespace InvoiceCalendar
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .CaptureStartupErrors(true)
+                .UseSetting("detailedErrors", "true")
                 .UseStartup<Startup>()
                 .Build();
     }

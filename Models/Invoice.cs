@@ -15,11 +15,11 @@ namespace InvoiceCalendar.Models
         public string Company { get; set; }
 
         [Required]
+        [Range(0, 10000000)]
         [Display(Name = "Kwota faktury")]
         public double Price { get; set; }
 
         [Required]
-        [Range(0,10000000)]
         [Display(Name = "Data faktury")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]

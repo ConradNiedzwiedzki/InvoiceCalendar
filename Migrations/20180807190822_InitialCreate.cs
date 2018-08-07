@@ -8,7 +8,7 @@ namespace InvoiceCalendar.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+            /*migrationBuilder.CreateTable(
                 name: "Invoice",
                 columns: table => new
                 {
@@ -21,7 +21,7 @@ namespace InvoiceCalendar.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Invoice", x => x.ID);
-                });
+                });*/
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
