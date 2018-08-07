@@ -24,16 +24,11 @@ namespace InvoiceCalendar.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Company")
-                        .IsRequired();
+                    b.Property<string>("Company");
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<string>("OwnerID");
-
                     b.Property<double>("Price");
-
-                    b.Property<int>("Status");
 
                     b.HasKey("ID");
 
